@@ -9,6 +9,7 @@ function PlantPage() {
 
   useEffect(() => {
     // no need to use http://localhost:3000 here
+    // debugger
     fetch("/plants")
       .then((r) => r.json())
       .then((plantsArray) => {
