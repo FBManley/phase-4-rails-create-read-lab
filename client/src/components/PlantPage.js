@@ -8,7 +8,6 @@ function PlantPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // no need to use http://localhost:3000 here
     fetch("/plants")
       .then((r) => r.json())
       .then((plantsArray) => {
@@ -20,11 +19,12 @@ function PlantPage() {
     const updatedPlantsArray = [...plants, newPlant];
     setPlants(updatedPlantsArray);
   }
-
+  
   const displayedPlants = plants.filter((plant) => {
     return plant.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
-
+  
+  console.log(displayedPlants)
   return (
     <main>
       <NewPlantForm onAddPlant={handleAddPlant} />
